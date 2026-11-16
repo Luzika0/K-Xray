@@ -44,7 +44,7 @@ tools, then run:
 ./scripts/build-xray-ios.sh
 ```
 
-The output is `ios/Frameworks/KXrayEngine.xcframework`. Link it to both the
+The output is `ios/Frameworks/KXrayEngine.framework`. Link it to both the
 container app and Packet Tunnel extension target.
 
 ## Runtime configuration contract
