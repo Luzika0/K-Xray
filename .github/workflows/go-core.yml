@@ -1,0 +1,24 @@
+name: Go core
+
+on:
+  push:
+    branches: [main, "feature/**"]
+    paths: ["core/**", ".github/workflows/go-core.yml"]
+  pull_request:
+    paths: ["core/**", ".github/workflows/go-core.yml"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.x"
+          cache-dependency-path: core/go.mod
+      - name: Test core packages
+        working-directory: core
+        run: go test ./...
+      - name: Vet core packages
+        working-directory: core
+        run: go vet ./...
