@@ -1,0 +1,40 @@
+name: k-Xray
+options:
+  bundleIdPrefix: com.panha
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+
+targets:
+  k-Xray:
+    type: application
+    platform: iOS
+    sources:
+      - path: PanhaTunnel
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.panha.kxray
+        PRODUCT_NAME: k-Xray
+        SWIFT_VERSION: 5.9
+        TARGETED_DEVICE_FAMILY: "1,2"
+        INFOPLIST_KEY_CFBundleDisplayName: k-Xray
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        CODE_SIGN_ENTITLEMENTS: PanhaTunnel/k-Xray.entitlements
+    dependencies:
+      - target: PacketTunnel
+        embed: true
+
+  PacketTunnel:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: PacketTunnel
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.panha.kxray.PacketTunnel
+        PRODUCT_NAME: PacketTunnel
+        SWIFT_VERSION: 5.9
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGN_ENTITLEMENTS: PacketTunnel/PacketTunnel.entitlements
+        INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier: com.apple.networkextension.packet-tunnel
+        INFOPLIST_KEY_NSExtension_NSExtensionPrincipalClass: "$(PRODUCT_MODULE_NAME).PacketTunnelProvider"

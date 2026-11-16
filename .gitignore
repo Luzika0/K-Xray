@@ -1,0 +1,34 @@
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+*.iml
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+
+# Go
+vendor/
+*.test
+coverage.out
+
+# Xcode
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcworkspace/xcuserdata/
+*.ipa
+*.dSYM/
+*.xcarchive/
+.build/
+
+# Secrets / local configuration
+.env
+.env.*
+!.env.example
+*.mobileprovision
+*.p12
+*.p8
