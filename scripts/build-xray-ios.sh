@@ -15,6 +15,6 @@ gomobile init
 (
   cd "$CORE"
   go mod download
-  gomobile bind -target=ios -o "$OUT/KXrayEngine.xcframework" ./engine
+  gomobile bind -target=ios -o "$OUT/KXrayEngine.framework" ./engine
 )
 echo "iOS Xray framework created at ios/Frameworks/KXrayEngine.xcframework"
