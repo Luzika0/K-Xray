@@ -11,6 +11,8 @@ targets:
     platform: iOS
     sources:
       - path: PanhaTunnel
+        excludes:
+          - "*.entitlements"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.panha.kxray
@@ -29,6 +31,9 @@ targets:
     platform: iOS
     sources:
       - path: PacketTunnel
+        excludes:
+          - "*.entitlements"
+          - "Info.plist"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.panha.kxray.PacketTunnel
@@ -36,5 +41,4 @@ targets:
         SWIFT_VERSION: 5.9
         TARGETED_DEVICE_FAMILY: "1,2"
         CODE_SIGN_ENTITLEMENTS: PacketTunnel/PacketTunnel.entitlements
-        INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier: com.apple.networkextension.packet-tunnel
-        INFOPLIST_KEY_NSExtension_NSExtensionPrincipalClass: "$(PRODUCT_MODULE_NAME).PacketTunnelProvider"
+        INFOPLIST_FILE: PacketTunnel/Info.plist
